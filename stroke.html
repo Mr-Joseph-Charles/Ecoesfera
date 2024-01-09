@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #canvas-container {
+            position: absolute;
+            margin: -100px 0 0 250px;
+            /* border: white 2px solid; */
+            border-radius: 7%;
+            z-index: 5;
+        }
+        #return {
+            position: absolute;
+            width: 127px;
+            height: 80px;
+            margin: -505px 0 0 10px;
+            z-index: 5;
+            opacity: 0;
+            border-radius: 50%;
+            /* background-color: aqua; */
+        }
+        #autoreference {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            margin: -225px 0 0 0;
+            z-index: 5;
+        }
+        #autoreference img {
+            width: 110px;
+            height: 110px;
+        }
+        #line {
+            position: absolute;
+            width: 3px;
+            height: 100px;
+            margin: -225px 0 0 105px;
+            z-index: 5;
+            background-color: white;
+            box-shadow: 0 0 15px #22BAFF;
+        }
+        #mic {
+            position: absolute;
+            width: 125px;
+            height: 100px;
+            margin: 15px 0 0 0;
+            padding-left: 25px;
+            z-index: 4;
+            opacity: 1;
+        }
+        #wave {
+            position: fixed;
+            width: 5px;
+            height: 5px;
+            margin: -59px 0 0 28px;
+            z-index: 5;
+            opacity: 0;
+            border: 2px whitesmoke s
+            olid;
+            box-shadow: 0 0 15px #22BAFF;
+            border-radius: 50%;
+        }
+        #mic:hover #wave {
+            animation-name: wave;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-fill-mode: both;
+        }
+        #disc {
+            position: absolute;
+            width: 120px;
+            height: 100px;
+            margin: 450px 0 0 484px;
+            z-index: 5;
+            opacity: 0;
+            /* background-color: darkolivegreen; */
+            border-radius: 15%;
+        }
+        #play {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            margin: 450px 0 0 635px;
+            z-index: 5;
+            opacity: 1;
+            /* background-color: cornflowerblue; */
+            border-radius: 50%;
+        }
+        #ui {
+            width: 100px;
+            height: 100px;
+        }
+        #catalogue {
+            position: abolute;
+            width: 375px;
+            height: 200px;
+            margin: -50px 0 0 450px;
+            z-index: -1;
+            border: 4px white solid;
+            box-shadow: 0 0 10px #22BAFF;
+            border-radius: 7%;
+        }
+        #catalogue h1 {
+            position: absolute;
+            color: whitesmoke;
+            text-shadow: 0 0 7px #22BAFF;
+            font-size: 35px;
+            margin: -250px 0 10px 0;
+        }
+        #column {
+            display: flex;
+            flex-direction: column;
+            margin: 0 20px;
+        }
+        #column button {
+            color: whitesmoke;
+            text-shadow: 0 0 7px #AFF00B;
+            font-size: 20px;
+            margin: 7px 0;
+            border: none;
+            padding: 0;
+        }
+        #column .yellow {
+            color: #ffff01
+        }
+        #cargando {
+            position: absolute;
+            width: 400px;
+            height: 150px;
+            font-size: 75px;
+            color: #FF9C00;
+            margin: -50px 0 0 425px;
+            z-index: 6;
+        }
+        #intro {
+            position: absolute;
+            text-align: center;
+            width: 750px;
+            height: 100px;
+            font-size: 75px;
+            color: aqua;
+            margin: -175px 0 0 255px;
+            z-index: -1;
+        }
+        @keyframes wave {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+                margin: -58px 0 0 28px;
+            }
+            50% {
+                opacity: 0;
+                width: 100px;
+                height: 100px;
+                margin: -115px 0 0 -21px;
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+                margin: -58px 0 0 28px;
+            }
+        }
+    </style>
+    <title>Ecoesfera</title>
+</head>
+<body>
+    <img src="imagenes/bg3.jpg" alt="" id="bg-img3">
+    <!-- En orden link para volver al menú, contenedor canvas (no lo toques), botón para elegir la canción, botón de play y pausa. -->
+    <a id="return" href="index.html"></a>
+    <img src="imagenes/disc.png" alt="" id="autoreference">
+    <div id="line"></div>
+    <a href="mic.html" id="mic">
+        <img src="imagenes/mic.png" alt="">
+        <div id="wave"></div>
+    </a>
+    <div id="canvas-container"></div>
+    <button id="disc"></button>
+    <button id="play">
+        <img id="ui" src="imagenes/play.png" alt="">
+    </button>
+    <div id="catalogue">
+        <h1>Selecciona una canción</h1>
+        <div id="column">
+            <button id="11">Christmas</button>
+            <button id="12">Danse macabre</button>
+            <button id="13">Gnossiene</button>
+            <button id="14">Nessun dorma</button>
+        </div>
+        <div id="column">
+            <button id="21">Enter sandman</button>
+            <button id="22">This is halloween</button>
+            <button id="23">Pump It</button>
+            <button id="24">Haggstrom</button>
+        </div>
+    </div>
+    <h2 id="cargando">Cargando...</h2>
+    <h2 id="intro">Observe el catálogo con el disco inferior</h2>
+    <script type="text/javascript" src="lib/p5.min.js"></script>
+	<script type="text/javascript" src="lib/addons/p5.sound.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@1,500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: black;
+    color: ghostwhite;
+    --color1: #950bf2;
+    --color2: #FF9C00;
+    --color3: #AFF00B;
+    --color4: #22BAFF;
+    --color5: #ffff01;
+    --anime: cubic-bezier(0.08, 0.82, 0.63, 0.63);
+    transition: all ease-in-out;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+#bg-img1 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#bg-img2 {
+  position: absolute;
+  width: 100vw;
+  height: 600px;
+}
+
+#bg-img3 {
+  position: absolute;
+  width: 100vw;
+  height: 600px;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+
+.link img {
+  margin: -75px 0 0 1200px;
+  padding: 5%;
+  border: white 2px solid;
+  border-radius: 10% 10% 10% 10% / 15% 15% 15% 15%;
+  box-shadow: 0 0 15px var(--color5), 0 0 15px var(--color5);
+  animation-name: basic-neon;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: var(--anime);
+  opacity: .8;
+  transform: scale(0.7);
+  filter: hue-rotate(90deg);
+}
+
+a {
+  width: 10%;
+  height: 35px;
+}
+
+.link img:hover {
+  animation-name: focused;
+  animation-duration: 5s;
+}
+
+.neon {
+  animation-name: basic-neon;
+  animation-duration: 10s;
+}
+
+.neon:hover {
+  animation-name: focused;
+  animation-duration: 5s;
+}
+
+@keyframes basic-neon {
+  0% {
+    box-shadow: 0 0 15px var(--color5), 0 0 15px var(--color5);
+  }
+  
+  50% {
+    box-shadow: 0 0 15px var(--color4), 0 0 var(--color4);
+  }
+
+  100% {
+    box-shadow: 0 0 15px var(--color5), 0 0 var(--color5);
+  }
+}
+
+@keyframes focused {
+  0% {
+    box-shadow: 0 0 15px var(--color1), 0 0 15px var(--color1);
+    transform: scale(0.7);
+    opacity: .8;
+  }
+
+  25% {
+    box-shadow: 0 0 15px var(--color2), 0 0 15px var(--color2);
+    transform: scale(0.75);
+  }
+
+  50% {
+    box-shadow: 0 0 15px var(--color3), 0 0 15px var(--color3);    
+    transform: scale(0.7);
+    opacity: 1;
+  }
+
+  75% {
+    box-shadow: 0 0 15px var(--color4), 0 0 15px var(--color4);
+    transform: scale(0.75);
+  }
+
+  100% {
+    box-shadow: 0 0 15px var(--color1), 0 0 15px var(--color1);
+    transform: scale(0.7);
+    opacity: .8;
+  }
+}
